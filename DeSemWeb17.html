@@ -48,7 +48,9 @@
             name="dc.creator"
             property="schema:name"
             content="Pieter-Jan Vandenberghe"/>
-      <meta about="#author-3" property="schema:email" content="??"/>
+      <meta about="#author-3"
+            property="schema:email"
+            content="pieterjan.vandenberghe@ugent.be"/>
       <link about="#author-3"
             property="schema:affiliation"
             href="#affiliation-2"/>
@@ -86,39 +88,35 @@
          <h1>Introduction</h1>
          <p>Different parties may want to get an insight in the performance of a public transport company. A commuter who makes the same trip for going to work every day, a transport company that wants to know if its trains are often delayed or a transport company worker that wants to know if he will arrive at home in time for dinner. These are only examples of what happens daily to all the people related with the public transport and their trust in its punctuality. </p>
          <p>From EU commission a new directive about discoverability and access to public transport data across Europe was published in April 2017. This document proposes to make public transport data from providers available on national or common access points saved on databases, data warehouse or repositories.  The main issue of this recommendation will be how to deal with the heterogeneity of access points and data formats and how to efficiently querying them.</p>
-         <p>In order to be able to provide reliable information about schedules and departure times of public transport, a good approach is based on the exploitation of time series and historical data. Currently, getting and processing these data from public transport companies is an expensive task. Common approaches for querying web data over long periods of time, like a SPARQL endpoint, are not efficient at the moment. In these approaches, the problem of the availability of the data and the process time of the server [3] are issues that the queries have to deal with. </p>
-         <p>By applying the Linked Data Fragments (LDF) solution [4] to time series, on one hand, we solve the problem of saving historical data in a queryable way and, on the other hand, we move the server effort to the client which improves server availability. In Video 1 we show a pitch about the application that was developed during the <a href="http://2017.summerofcode.be/">Open Summer of code 2017</a> event by <a href="http://www.oasis.team">OASIS</a> students. </p>
-         <p>
-            <em>Video 1: 1 minute pitch of the project by our students</em>
-         </p>
-         <p>The following sections are divided as such: Section 2 contains related work about linked data and linked connections, Section 3 explains time series and our conceptualization of them. Section 4 describes the demo and finally, in Section 5 we present some conclusions and future work lines.</p>
-      </section>
-      <section>
-         <h1>Related work</h1>
-         <p>One of the most well-known alternatives to publish data on the Web is Linked Data[1]. Its principle is to publish documents with triples about specific entities and allow clients to query it through their entity URI. Even so, this approach has two main drawbacks. First, the querying performance is very high so many queries cannot be answer and second, the URI of an entity only points to the single document on the server that hosts the domain of that URI.</p>
-         <p>Also, the availability of SPARQL endpoints tends to be problematic when they are publicly available without restriction for many concurrent users. This is because the amount of required server resources increases quickly with extensive queries and more concurrent users. A solution to this problem is the use of Linked Data Fragments [3]. The LDF is chosen as such that it requires few server resources (no extensive queries), clients are then able to further query the fragments themselves. This moves a lot of the working load off the servers and on to clients.</p>
-         <p>Linked Connections then combines the Linked Data Fragments with the Connection Scan Algorithm. The time series of connections used in CSA is split into many Linked Data Fragments. Now the algorithm can be executed on a client which queries the server for more fragments as needed [2]. The main advantages of this approach are that significantly less server-side computing power is needed and a client can combine data from multiple datasets as desired. Because the calculations are done client-side the server also does not have to know your departure and destination locations or route so you are more in control of your privacy.</p>
+         <p>In order to be able to provide reliable information about schedules and departure times of public transport, a good approach is based on the exploitation of time series and historical data. Currently, getting and processing these data from public transport companies is an expensive task. Common approaches for querying web data over long periods of time, like a SPARQL endpoint, are not efficient at the moment. In these approaches, the problem of the availability of the data and the process time of the server (Verborgh, Hartig, et al., 2014) are issues that the queries have to deal with. </p>
+         <p>By applying the Linked Data Fragments (LDF) solution (Verborgh, Vander Sande, et al., 2014) to time series, on one hand, we solve the problem of saving historical data in a queryable way and, on the other hand, we move the server effort to the client which improves server availability. In Figures 1 and 2 we show two screenshots about the application that was developed during the <a href="http://2017.summerofcode.be/">Open Summer of code 2017</a> event by <a href="http://www.oasis.team">OASIS</a> students. </p>
          <figure>
             <p>
                <img src="./img/image1.png"
+                    alt="List of  routes   between   two   stations  in  Belgium"/>
+            </p>
+            <figcaption>List of  routes   between   two   stations  in  Belgium</figcaption>
+         </figure>
+         <figure>
+            <p>
+               <img src="./img/image2.png"
+                    alt="Objective   puntuaction  of  each   route   based  on data from 5 weeks"/>
+            </p>
+            <figcaption>Objective   puntuaction  of  each   route   based  on data from 5 weeks</figcaption>
+         </figure>
+         <p>In this paper we describe some related work about linked data and linked connections, and we present the demo tripscore, that analyzes historical and real data of means of transport and finally, we present some conclusions and future work lines.</p>
+      </section>
+      <section>
+         <h1>Related work</h1>
+         <p>One of the most well-known alternatives to publish data on the Web is Linked Data (Bizer, Heath, &amp; Berners-Lee, 2009). Its principle is to publish documents with triples about specific entities and allow clients to query it through their entity URI. Even so, this approach has two main drawbacks. First, the querying performance is very high so many queries cannot be answer and second, the URI of an entity only points to the single document on the server that hosts the domain of that URI.</p>
+         <p>Also, the availability of SPARQL endpoints tends to be problematic when they are publicly available without restriction for many concurrent users. This is because the amount of required server resources increases quickly with extensive queries and more concurrent users. A solution to this problem is the use of Linked Data Fragments (Verborgh, Hartig, et al., 2014). The LDF is chosen as such that it requires few server resources (no extensive queries), clients are then able to further query the fragments themselves. This moves a lot of the working load off the servers and on to clients.</p>
+         <p>Linked Connections then combines the Linked Data Fragments with the Connection Scan Algorithm. The time series of connections used in CSA is split into many Linked Data Fragments. Now the algorithm can be executed on a client which queries the server for more fragments as needed (Colpaert et al., 2015). The main advantages of this approach are that significantly less server-side computing power is needed and a client can combine data from multiple datasets as desired. Because the calculations are done client-side the server also does not have to know your departure and destination locations or route so you are more in control of your privacy.</p>
+         <figure>
+            <p>
+               <img src="./img/image3.png"
                     alt="HTTP  interfaces  for the  purpose  of  route  planning"/>
             </p>
             <figcaption>HTTP  interfaces  for the  purpose  of  route  planning</figcaption>
-         </figure>
-      </section>
-      <section>
-         <h1>Time Series</h1>
-         <figure>
-            <p>
-               <img src="./img/image2.png" alt="Observations  over time in a time  series"/>
-            </p>
-            <figcaption>Observations  over time in a time  series</figcaption>
-         </figure>
-         <figure>
-            <p>
-               <img src="./img/image3.png" alt="Observations  in  hydra:PagedCollection"/>
-            </p>
-            <figcaption>Observations  in  hydra:PagedCollection</figcaption>
          </figure>
       </section>
       <section>
