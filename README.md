@@ -16,10 +16,9 @@ An app where you can choose what makes commuting more enjoyable to you and then 
 
 The paper is written using the RASH template: https://github.com/essepuntato/rash
 
-Read the paper here (temporary URL): https://htmlpreview.github.io/?https://github.com/dachafra/tripscore/blob/master/DeSemWeb17.html
+Read the paper here: https://cef-oasis.github.io/tripscore/tripscore.html
 
-Currently under open review at the [DeSemWeb workshop](http://iswc2017.desemweb.org/) of the [ISWC2017 conference](https://iswc2017.semanticweb.org/): https://openreview.net/forum?id=H16ZExYLb&noteId=H16ZExYLb (feel free to submit a public review!)
-
+Accepted at the [DeSemWeb workshop](http://iswc2017.desemweb.org/) of the [ISWC2017 conference](https://iswc2017.semanticweb.org/): https://openreview.net/forum?id=H16ZExYLb&noteId=H16ZExYLb
 ## 1 minute pitch
 
 [![1 minute pitch by the open  Summer of code 2017  students](https://img.youtube.com/vi/xIkf9Ru7Les/0.jpg)](https://www.youtube.com/watch?v=xIkf9Ru7Les)
