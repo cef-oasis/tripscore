@@ -109,26 +109,28 @@
       <section>
       	<h1>Tripscore: summarizing large time series</h1>
       	<p>Tripscore application is an analytical tool that measures the quality of experience of public transport and pre-informs passengers in order to impact their travel behaviour and patterns. The goal of the application is to show the usefulness of publishing linked open public transport data for citizens and transport companies and agencies. Which in turn, motivates transport companies and agencies to publish their data following an open nature.</p>
-      	<p>Currently, the application includes data from the National Belgium Rail (NMBS) and the Consorcio Regional de Transportes de Madrid (CRTM). For transforming these real-time and historical data we developed a <a href="https://github.com/julianrojas87/linked-connections-server">server</a> based on the Memento Framework (Van de Sompel et al., 2010) that takes the GTFS files from the companies and tranforms them to the Linked Connections ontology. After this transformation process, the application is able to query the data using HTTP interfaces as <a>http://madrid.linkedconnections.org/crtm/connections</a> and it calculates the summaries that will be exposed on the GUI.</p>
+      	<p>For transforming the real-time and historical data we developed a <a href="https://github.com/julianrojas87/linked-connections-server">server based on the Memento Framework</a> (Van de Sompel et al., 2010) that takes the GTFS files from the companies and tranforms them to the Linked Connections ontology. After this transformation process, the application is able to query the data using HTTP interfaces as <a>http://madrid.linkedconnections.org/crtm/connections</a> and it calculates the summaries that will be exposed on the GUI.</p>
+      	<p>Currently, the application includes data from the National Belgium Rail (NMBS) and the Consorcio Regional de Transportes de Madrid (CRTM). The historic data that the application takes into account are collected from 5 weeks before and the routes that the GUI proposes are about a specific day of the week nad timespan of 2 hours. We are able to query these amount of data because the necessay data is exposing following the Linked Connections ontology as a JSON file and the client is the responsible of the calculation of the summaries about the time series.</p>
       </section>
       <section>
          <h1>Demonstration</h1>
          <p>The tripscore application can be viewed at <a href="http://tripscore.eu/">http://tripscore.eu/</a>. When visiting the page, a user can fill in their departure and arrival stop as well as the time of the trip and the day of the week. After confirming the travel data, the client starts querying for LDF pages with connections and processes them as they come in. The number of HTTP requests, responses and the amount of processed connections are shown while calculating results. Results are added to the list of routes as they are being calculated. Each result shows information about the trip such as the average travel time or the amount of hops needed. The punctuality of each route is calculated as well based on historic data. A trip’s score is given based on user preferences that can be modified in the preferences tab. In Figures 1 and 2 we show two screenshots about the application that was developed during the <a href="http://2017.summerofcode.be/">Open Summer of code 2017</a> event by <a href="http://www.oasis.team">OASIS</a> students </p>
+         <p>The code of this demo is available at <a href="https://github.com/oSoc17/oasis-frontend">https://github.com/oSoc17/oasis-frontend</a> under the MIT license. It reuses the open source <a href="https://github.com/pietercolpaert/ldfetch">LDFetch Linked Data client</a> for NodeJS which was written specifically for the students at open Summer of code 2017.</p>
           <figure>
             <p>
                <img src="./img/image1.png"
                     alt="List of  routes   between   two   stations  in  Belgium"/>
             </p>
-            <figcaption>List of  routes   between   two   stations  in  Belgium</figcaption>
+            <figcaption>List of routes between two stations in Belgium</figcaption>
          </figure>
          <figure>
             <p>
                <img src="./img/image2.png"
                     alt="Objective   puntuaction  of  each   route   based  on data from 5 weeks and user preferences"/>
             </p>
-            <figcaption>Objective   puntuaction  of  each   route   based  on data from 5 weeks and user preferences</figcaption>
+            <figcaption>Objective puntuaction of each route based on data from 5 weeks and user preferences</figcaption>
          </figure>
-         <p>The code of this demo is available at <a href="https://github.com/oSoc17/oasis-frontend">https://github.com/oSoc17/oasis-frontend</a> under the MIT license. It reuses the open source <a href="https://github.com/pietercolpaert/ldfetch">LDFetch Linked Data client</a> for NodeJS which was written specifically for the students at open Summer of code 2017.</p>
+        
       </section>
       <section>
          <h1>Conclusions and future work</h1>
